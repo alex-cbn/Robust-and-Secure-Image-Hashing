@@ -21,9 +21,24 @@ I = fft2(i);
 im = double(i);
 
 fim=fft2(im);
-fim = fftshift(fim);
 pcimg=imgpolarcoord(im);
-fpcimg=imgpolarcoord(fim);
+fpcimg=imgpolarcoord(fim); % functie bomba de pe net. suporta la parametrii <K> ala din articol si by default il ia 360
+%dar nu baga interpolare deci... whatever. practic face ce ar trebui noi sa
+%facem doar ca nu stiu(stim?) adica pleaca din centrul imaginii si
+%desfasoara imaginea ca intr-o spirala si o imparte in radii (aparent pluarul de la radius)
+%pe exemplul nostru de imagine 64x64 evident scoate un 32(fiecare nivel de
+%rho) cu 360(fiecare theta). One little problem eu as vedea ca in fiecare
+%valoare din noua matrice sa gasesc daca fac cart2pol acelasi rho de 360 de
+%ori si un alt theta de la 0 la 360 (-pi, pi), realitatea e un pic departe
+%this needs further investigation...though maybe we'll crack it up
+
+%posibila explicatie pentru variatie e din cauza lui round si faptul ca
+%defapt avem o imagine gen patrata si o dam in cerc
+
+
+[roz,fi] = cart2pol(real(fpcimg), imag(fpcimg));
+
+
 figure; subplot(2,2,1); imagesc(im); colormap gray; axis image;
 title('Input image');  subplot(2,2,2);
 imagesc(log(abs(fftshift(fim)+1)));  colormap gray; axis image;
