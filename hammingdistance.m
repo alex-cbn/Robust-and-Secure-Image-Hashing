@@ -8,6 +8,7 @@ if  L1~=L2
     d = -1;
 else
     L=L1;
+    d=0;
     for k=1:1:L
         d = d + abs(hash1(k)-hash2(k));
     end;

@@ -1,10 +1,7 @@
-%Default
-clear;
-clc;
-close all;
+function [ h, h2 ] = tupeu( i )
+%TUPEU Summary of this function goes here
+%   Detailed explanation goes here
 
-%read image and its attributes
-i = imread('lena_gray.bmp');
 [width, height, depth] = size(i);
 
 %PREPROCESSING
@@ -20,7 +17,7 @@ I = fft2(i);
 
 %SWITCH TO POLAR
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-im = double(i);
+im = double(I);
 
 fim=fft2(im);
 fim = fftshift(fim);
@@ -42,13 +39,13 @@ fpcimg=imgpolarcoord(fim); % functie bomba de pe net. suporta la parametrii <K> 
 [roz,fi] = cart2pol(real(fpcimg), imag(fpcimg));
 
 
-figure; subplot(2,2,1); imagesc(im); colormap gray; axis image;
-title('Input image');  subplot(2,2,2);
-imagesc(log(abs(fftshift(fim)+1)));  colormap gray; axis image;
-title('FFT');subplot(2,2,3); imagesc(pcimg); colormap gray; axis image;
-title('Polar Input image');  subplot(2,2,4);
-imagesc(log(abs(fpcimg)+1));  colormap gray; axis image;
-title('Polar FFT');
+% figure; subplot(2,2,1); imagesc(im); colormap gray; axis image;
+% title('Input image');  subplot(2,2,2);
+% imagesc(log(abs(fftshift(fim)+1)));  colormap gray; axis image;
+% title('FFT');subplot(2,2,3); imagesc(pcimg); colormap gray; axis image;
+% title('Polar Input image');  subplot(2,2,4);
+% imagesc(log(abs(fpcimg)+1));  colormap gray; axis image;
+% title('Polar FFT');
 
 
 
@@ -87,4 +84,6 @@ for j=1:1:rho_length
     end;
 
 end;
+
+end
 
