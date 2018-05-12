@@ -2,6 +2,10 @@ function [ h, h2 ] = generate_hash( i )
 %TUPEU Summary of this function goes here
 %   Detailed explanation goes here
 
+if size(i,3) == 3
+    i = rgb2gray(i);
+end
+
 [width, height, depth] = size(i);
 
 %PREPROCESSING

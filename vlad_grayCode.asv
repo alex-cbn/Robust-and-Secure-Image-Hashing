@@ -1,0 +1,12 @@
+function [ output_args ] = vlad_grayCode( imgName )
+%VLAD_GRAYCODE Summary of this function goes here
+%   Detailed explanation goes here
+
+    i = imread(imgName);
+    [h, h2] = generate_hash(i);
+    
+    h_bin = dec2bin(h);
+    grayCode = bin2gray(h_bin, 'qam', 
+
+end
+
