@@ -3,7 +3,8 @@ function [h_p] = postprocess(h)
 %   
 h_q = quant_norm(h, 16);  % quant+norm
 h_g = gray_code(h_q);  % gray encode
-h_d = rm_dec(h_g);  % Reed Muller decode
+h_d = h_g; % kill
+%h_d = rm_dec(h_g);  % Reed Muller decode
 h_p = h_d;  % TODO: Key Based Permutation
 
 
