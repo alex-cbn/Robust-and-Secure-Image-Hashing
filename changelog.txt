@@ -1,3 +1,18 @@
--implemented get rand bytes from key
--wrapped but did not test yet gray and reed-muller
--also created postprocess function
+IMPORTANT please do check postprocess.m and gray_code.m
+GRAY_CODE CONTAINS ONE IMPORTANT LINE THAT MUST BE UNCOMMENTED
+
+
+preliminary testing suggests some chance for succes
+The model is 90% ready aside from the hideous gray coding
+and whatever comes after
+Now the race is onto finding a ballance between quantization and the output
+
+Therefore I suggest actually applying this to real images
+(Maybe Lightroom can help us batch edit or even photoscape :D )
+
+We must calibrate our parameters because we need to determine the point in
+which 2 images can be deemed as similar or not
+
+Calibration is also needed for quantization...
+
+Another issue is key based randomization: while changing one char in password the second shcheme can deem 2 pictures identical even if the keys don't match

@@ -12,6 +12,7 @@ else
     for k=1:1:L
         d = d + abs(hash1(k)-hash2(k));
     end;
+    d = double(d);
     d = 1/L * d;
 end;
 
