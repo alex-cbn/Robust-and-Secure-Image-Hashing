@@ -1,14 +1,12 @@
-function [ decoded ] = vlad_reedMullerDec( imgName )
+function [ decoded ] = vlad_reedMullerDec( h_bin_grayCode )
 %VLAD_REEDMULLERDEC Summary of this function goes here
-%   Decode  binary hash sequence resulted from grayCode
-
-    grayCode = vlad_grayCode(imgName);
+%   Decode binary hash sequence resulted from grayCode
     
     m = 7;
     n = 17;
     k = 15;
     
-    gfGrayCode = gf(grayCode, m); 
+    gfGrayCode = gf(h_bin_grayCode, m); 
     decoded = rsdec(gfGrayCode, n, k);   
 end
 

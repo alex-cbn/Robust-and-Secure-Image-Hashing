@@ -1,15 +1,10 @@
-function [ output_image ] = downsample_image( varargin )
+function [ output_image ] = downsample_image( img )
 %Downsamples a image
-%   the order of downsampling is a fraction and  can be specified or it
-%   defaults to 0.25
-
-order = 0.25;
-if length(varargin)>1
-    order = varargin{2};
-end;  
+%   make picture into correct format
+%   defaults 256x256
 
 %filtering image
-output_image = imresize(varargin{1}, order);
+output_image = imresize(img, [256 256]);
 
 end
 

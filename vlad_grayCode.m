@@ -1,14 +1,10 @@
-function [ grayCode ] = vlad_grayCode( imgName )
+function [ h_bin_grayCode ] = vlad_grayCode( h, precision )
 %VLAD_GRAYCODE Summary of this function goes here
-%   code the norm vector(16) into gray code
+%   generate grayCode of a Quantized Feture Vector
 
-    i = imread(imgName);
-    [h, h2] = generate_hash(i);
-
-    h_quant = quant_norm(h, 16);
-    h_bin = dec2bin(h_quant);
+    grayCode = bin2gray(h, 'qam', 2^precision);
     
-    grayCode = bin2gray(h_bin, 'fsk', 64);
-
+    %h_bin_grayCode = dec2bin(grayCode);
+    h_bin_grayCode = grayCode;
+    
 end
-

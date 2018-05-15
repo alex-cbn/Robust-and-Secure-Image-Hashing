@@ -3,6 +3,7 @@ function [ d ] = hammingdistance( hash1, hash2 )
 %the length 
 L1 = length(hash1);
 L2 = length(hash2);
+
 if  L1~=L2
     print('The lengths of the hashes do not match');
     d = -1;
