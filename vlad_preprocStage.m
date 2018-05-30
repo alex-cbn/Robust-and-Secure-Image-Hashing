@@ -17,7 +17,7 @@ function [ im_lpf, im_ds, im_eqh, im_fft, pcimg, fpcimg ] = vlad_preprocStage( i
     im_eqh = histeq(im_ds);
     %FFT2 the preprocessed image
     im_doubleFormat = im2double(im_eqh);
-    im_fft = fft2(im_doubleFormat);  
+    im_fft = fft2(im_doubleFormat);
     im_fft = fftshift(im_fft);
 
     %convert to polar co-ordinates

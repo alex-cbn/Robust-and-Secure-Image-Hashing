@@ -5,7 +5,7 @@ function [ qnorm_vector ] = quant_norm(vector, precision)
 max_value=max(vector);
 min_value=min(vector);
 
-value_range = 2^precision;
+value_range = 2^precision-1;
 thickness= (max_value-min_value)/value_range;
 
 qnorm_vector = vector - min_value;
